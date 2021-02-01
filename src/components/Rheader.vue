@@ -4,7 +4,7 @@
 
         
         <b-navbar-brand href="/">
-           <img src="/img/logo.svg" alt="" width="35" height="35" class="mx-3">vantagecomputers.co.uk
+           <img src="/img/logo.svg" alt="" width="35" height="35" class="mx-3 spot">VTC.co.uk
         </b-navbar-brand>
 
 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -22,6 +22,9 @@
   </b-navbar>
   </header>
 </template>
+
+
+
 
 <script>
 export default {

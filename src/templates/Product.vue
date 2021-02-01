@@ -2,7 +2,7 @@
   <Layout>
     <div class="container-fluid bg-light">
       <div class="container px-0 py-3 breadcrump">
-        <a href="/">Home</a> ~ <g-link to="/product-list/">Prodotti</g-link> ~
+        <a href="/">Home</a> ~ <g-link to="/product-list/">Products</g-link> ~
         {{ $page.product.title }}
       </div>
     </div>
@@ -44,9 +44,9 @@
  <span class="small" v-if="$page.product.brand != ''"><a class="badge rounded-pill bg-danger text-white" :href="$page.product.uRL + affiliate">{{ $page.product.brand }}</a></span>
 
             <p class="mt-2" v-if="$page.product.description != 0">
-              {{ $page.product.description.substring(0,500)+" ... " | strippedContent }}<a class="badge bg-secondary text-white" :href="$page.product.uRL + affiliate">Leggi il resto</a>
+              {{ $page.product.description.substring(0,500)+" ... " | strippedContent }}<a class="badge bg-secondary text-white" :href="$page.product.uRL + affiliate">Read more</a>
                  
-            <p class="mt-2 font-italic" v-else>Nessuna descrizione disponibile</p>
+            <p class="mt-2 font-italic" v-else>No description available</p>
           </div>
           <div class="col-lg-3 col-md-12 rounded">
             <div class="card shadow-sm">
@@ -58,7 +58,7 @@
                 >
                   {{ $page.product.price }} €
                 </h5>
-                <h5 class="card-title price-text" v-else>Offerta</h5>
+                <h5 class="card-title price-text" v-else>Offer</h5>
 
                 <!-- <span class="small" v-if="$page.product.discount !== '0%'"
                   >Prezzo: <del>{{ $page.product.listPrice }} €</del></span
@@ -66,7 +66,7 @@
 
                 <!-- <small class="label-rating text-danger" v-if="$page.product.discount !== '0%'">
                   <i class="fa fa-clipboard-check"></i>&nbsp;
-                  <span>RISPARMI {{$page.product.discount}}</span> -->
+                  <span>Save {{$page.product.discount}}</span> -->
 
                 <!-- <span
                   class="d-block small"
@@ -75,18 +75,18 @@
                 >
                 <span class="d-block small" v-else> -- </span> -->
 
-                <span class="card-text small" v-if="$page.product.price !== '0,0'">Prezzo IVA inclusa</span>
+                <span class="card-text small" v-if="$page.product.price !== '0,0'">Price VAT included</span>
                 <hr />
                 <p class="small-text mb-0">
-                  <strong>I PREZZI DEI PRODOTTI POTREBBERO NON ESSERE AGGIORNATI</strong> - Questo sito partecipa al Programma Affiliazione Amazon Europe
-                  S.r.l., un programma di affiliazione che consente ai siti di
-                  percepire una commissione pubblicitaria pubblicizzando e
-                  fornendo link al sito Amazon.it.
+                  <strong>PRODUCT PRICES MAY NOT BE UPDATED</strong> - This site participates in the Amazon Europe Affiliate Program.
+                  S.r.l., an affiliate program that allows sites to earn an advertising commission by
+                  receive an advertising commission by advertising and
+                  providing links to the Amazon.co.uk website.
                 </p>
               </div>
 
               <div class="card-footer">
-                <!-- <button type="button" class="btn btn-danger button-move btn-block">Acquista ora</button> -->
+                <!-- <button type="button" class="btn btn-danger button-move btn-block">Buy Now</button> -->
 
                 <a
                   :href="$page.product.uRL + affiliate"
@@ -94,7 +94,7 @@
                   type="button"
                   v-if="$page.product.price !== '0,0'"
                 >
-                  Acquista
+                  Buy Now
                 </a>
 
                 <a
@@ -103,7 +103,7 @@
                   type="button"
                   v-else
                 >
-                  Check disponibilità
+                  Check availability
                 </a>
               </div>
             </div>
@@ -114,17 +114,14 @@
       </div>
       <div class="container my-4">
         <h3 class="border-bottom pb-3 text-break">
-          In offerta: {{ $page.product.title }}
+          On offer: {{ $page.product.title }}
         </h3>
         <div class="text-break">
-          In questa pagina troverete recensioni, opinioni e informazioni
-          dettagliate sul prodotto <strong>{{ $page.product.title }}</strong
-          >, di <strong>{{ $page.product.brand }}</strong
-          >, venduto da <strong>Amazon.it</strong>. Di seguito una tabella con
-          tutte le informazioni dettagliate sull'offerta commerciale e per
-          l'acquisto del prodotto <strong>{{ $page.product.title }}</strong
-          >, di <strong>{{ $page.product.brand }}</strong> e le recensioni dei
-          clienti che lo hanno già acquistato.
+          On this page you will find reviews, opinions and detailed information about the product <strong>{{ $page.product.title }}</strong
+          >, by <strong>{{ $page.product.brand }}</strong
+          >, sold by <strong>Amazon.co.uk</strong>. Below is a table with all the detailed information on the commercial offer and for the purchase of the product <strong>{{ $page.product.title }}</strong
+          >, by <strong>{{ $page.product.brand }}</strong> and reviews from
+          customers who have already purchased it.
         </div>
       </div>
 
@@ -138,17 +135,17 @@
               <table class="table">
                 <tbody>
                   <tr>
-                    <th colspan="2">Descrizione dell'offerta</th>
+                    <th colspan="2">Description of the offer</th>
                   </tr>
                   <!-- <tr>
                   <td>COD.</td>
                   <td>{{$page.product.aSIN}}</td>
                 </tr> -->
                   <tr>
-                    <td>Recensioni clienti</td>
+                    <td>Reviews</td>
                     <td>
                       <a :href="$page.product.uRL + affiliate"
-                        >Leggi le recensioni</a
+                        >Read reviews</a
                       >
                     </td>
                   </tr>
@@ -162,14 +159,14 @@
                   </tr>
 
                   <tr>
-                    <td>Prezzo</td>
+                    <td>Price</td>
                     <td v-if="$page.product.price !== '0,0'">
                       {{ $page.product.price }}€
                     </td>
                     <td v-else>--</td>
                   </tr>
                   <!-- <tr>
-                    <td>Prezzo</td>
+                    <td>Price</td>
                     <td v-if="$page.product.listPrice !== '0,0'">
                       {{ $page.product.listPrice }}€
                     </td>
@@ -187,8 +184,8 @@
               <ul>
                 <li>
                   <small
-                    >*Sale Rank - Posizione classifica più venduti su
-                    Amazon.it</small
+                    >*Sale Rank - Position ranking best sellers on
+                    Amazon.co.uk</small
                   >
                 </li>
               </ul>
@@ -200,7 +197,7 @@
       <!-- FINE BOX FINE PAGINA    -->
 
       <div class="container">
-        <h3 class="big-text my-4 py-4">Potrebbero interessarti</h3>
+        <h3 class="big-text my-4 py-4">You might be interested in</h3>
       </div>
 
 <div class="container pb-4 mb-4">
@@ -224,10 +221,10 @@
         
       </div>
       <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
-        <p class="price-text text-center mb-1" v-if="sidebar.price != '0,0'">{{ sidebar.price }}€</p>
-        <p class="price-text text-center mb-1" v-else>Offerta</p>
-        <button type="button" class="btn btn-danger btn-block" v-if="sidebar.price != '0,0'">Acquista ora</button>
-         <button type="button" class="btn btn-danger btn-block" v-else>Check disponibilità</button>
+        <p class="price-text text-center mb-1" v-if="sidebar.price != '0,0'">{{ sidebar.price }}£</p>
+        <p class="price-text text-center mb-1" v-else>Offer</p>
+        <button type="button" class="btn btn-danger btn-block" v-if="sidebar.price != '0,0'">Buy Now</button>
+         <button type="button" class="btn btn-danger btn-block" v-else>Check availability</button>
       </div>
     </div>
   </div>
@@ -307,7 +304,7 @@ export default {
   metaInfo() {
     return {
       title:
-        "Recensione - " + this.$page.product.title.substring(0, 70) + "...",
+        "Review - " + this.$page.product.title.substring(0, 70) + "...",
       meta: [
         {
           key: "description",
@@ -319,7 +316,7 @@ export default {
         { property: "og:description", content: this.ogDesc },
         {
           property: "og:url",
-          content: `http://giocomputers.it/` + this.postUrl,
+          content: `http://vantagecomputers.co.uk/` + this.postUrl,
         },
         { property: "og:image", content: this.ogImageUrl },
         // { name: "twitter:card", content: "summary_large_image" },
@@ -349,7 +346,7 @@ export default {
   },
   computed: {
     affiliate: function () {
-      return "&tag=newdev-21";
+      return "&tag=devnewuk-21";
     },
 
     ogImageUrl() {

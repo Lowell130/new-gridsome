@@ -2,12 +2,12 @@
   <Layout>
 
   <div class="container-fluid bg-light">
-  <div class="container px-0 py-3 breadcrump"><a href="/">Home</a> ~ Cerca</div>
+  <div class="container px-0 py-3 breadcrump"><a href="/">Home</a> ~ Search</div>
 </div>
 <main>
    <div class="container my-4 py-4">
         <h1>Ricerca</h1>
-      <p>In questa pagina potrai effettuare una ricerca in tutto il catalogo</p>
+      <p>In this page you will be able to search in the whole catalog</p>
            <div class="input-group mt-4 pt-4">
             <input id="search" v-model="searchTerm" name="searchtext" value="" class="form-control" type="text">
              <span class="input-group-append">
@@ -40,9 +40,9 @@
           <div class="card shadow-sm">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
-            <h5 class="card-title price-text" v-if="result.price !== '0,0'">{{ result.price }} €</h5>
-            <h5 class="card-title price-text" v-else>Offerta</h5>
-            <span class="small" v-if="result.discount !== '0%'">Prezzo: <del>{{ result.listPrice }} €</del></span>
+            <h5 class="card-title price-text" v-if="result.price !== '0,0'">{{ result.price }} £</h5>
+            <h5 class="card-title price-text" v-else>Offer</h5>
+            <span class="small" v-if="result.discount !== '0%'">Price: <del>{{ result.listPrice }} £</del></span>
             <span class="small v-else"> -- </span>
             
              <!-- <small class="label-rating text-danger" v-if="result.discount !== '0%'">
@@ -50,15 +50,13 @@
                   <span>RISPARMI {{result.discount}}</span> -->
             
             
-            <span class="d-block small" v-if="result.discount !== '0%'">Risparmi: {{result.discount}}</span>
+            <span class="d-block small" v-if="result.discount !== '0%'">Save: {{result.discount}}</span>
             <span class="d-block small" v-else> -- </span>
             
             
-            <span class="card-text small" v-if="result.price !== '0,0'">Prezzo IVA inclusa</span>
+            <span class="card-text small" v-if="result.price !== '0,0'">Price VAT included</span>
             <!-- <hr />
-            <p class="small-text mb-0">Questo sito partecipa al Programma Affiliazione Amazon Europe S.r.l., un
-              programma di affiliazione che consente ai siti di percepire una commissione pubblicitaria pubblicizzando e
-              fornendo link al sito Amazon.it.</p> -->
+            <p class="small-text mb-0">This site participates in the Amazon Europe S.r.l. Affiliate Program, an affiliate program that allows sites to earn an advertising commission by advertising and providing links to the Amazon.co.uk site.</p> -->
 
           </div>
 
@@ -66,14 +64,14 @@
               
               <a :href="uRL+affiliate" target="_blank" class="btn btn-danger button-move btn-block" type="button">
                  
-                    Acquista
+                    Buy Now
                   </a>
             </div> -->
           </div>
 
         </div>
 
-        <!-- <button type="button" class="btn btn-danger btn-block">Acquista ora</button> -->
+        <!-- <button type="button" class="btn btn-danger btn-block">Buy Now</button> -->
 
 
       </div>
@@ -97,7 +95,7 @@ import { Pager } from "gridsome";
 import Search from "gridsome-plugin-flexsearch/SearchMixin";
 export default {
     metaInfo: {
-    title: "Ricerca tra tutti i prodotti nel catalogo gaming"
+    title: "Search all products in the gaming catalog"
   }, 
   mixins: [Search],
   components: {
@@ -106,7 +104,7 @@ export default {
  
   computed: {
     affiliate: function() {
-      return "&tag=newdev-21";
+      return "&tag=devnewuk-21";
     },
     reviewsAmz: function() {
       return "#customerReviews";

@@ -1,11 +1,11 @@
 <template>
   <Layout>
     <div class="container-fluid bg-light">
-  <div class="container px-0 py-3 breadcrump"><a href="/">Home</a> ~ Lista prodotti</div>
+  <div class="container px-0 py-3 breadcrump"><a href="/">Home</a> ~ Product list</div>
 </div>
     <div class="container my-4 py-4">
-      <h1>Tutti i prodotti</h1>
-      <p>In questa pagina troverai tutti i prodotti presenti nel sito</p>
+      <h1>All Products</h1>
+      <p>On this page you will find all the products on the site</p>
       <!-- <ul>
       <li v-for="{ node: product } in $page.allProduct.edges" :key="product.id">
         <g-link :to="product.path">{{ product.title }}</g-link>
@@ -37,9 +37,9 @@
       </div>
       <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
         <p class="price-text text-center mb-1" v-if="product.price != '0,0'">{{ product.price }}€</p>
-        <p class="price-text text-center mb-1" v-else>Offerta</p>
-        <button type="button" class="btn btn-danger btn-block" v-if="product.price != '0,0'">Acquista ora</button>
-         <button type="button" class="btn btn-danger btn-block" v-else>Check disponibilità</button>
+        <p class="price-text text-center mb-1" v-else>Offer</p>
+        <button type="button" class="btn btn-danger btn-block" v-if="product.price != '0,0'">Buy Now</button>
+         <button type="button" class="btn btn-danger btn-block" v-else>Check availability</button>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@
 import { Pager } from "gridsome";
 export default {
   metaInfo: {
-    title: "Lista di tutti i prodotti per il gaming"
+    title: "List of all gaming products"
   },
   components: {
     Pager
@@ -111,7 +111,7 @@ export default {
   },
   computed: {
     affiliate: function() {
-      return "&tag=newdev-21";
+      return "&tag=devnewuk-21";
     },
     reviewsAmz: function() {
       return "#customerReviews";
