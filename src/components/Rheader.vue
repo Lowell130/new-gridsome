@@ -4,7 +4,7 @@
 
         
         <b-navbar-brand href="/">
-           <img src="/img/logo.svg" alt="" width="35" height="35" class="mx-3">giocomputers.it
+           <img src="/img/logo.svg" alt="" width="35" height="35" class="mx-3">vantagecomputers.co.uk
         </b-navbar-brand>
 
 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -12,9 +12,9 @@
       <b-navbar-nav>
        
          <b-nav-item href="/" class="text-uppercase">Home</b-nav-item>
-        <b-nav-item href="/product-list/" class="text-uppercase">prodotti</b-nav-item>
-         <!-- <b-nav-item href="/blog/blog-list/" class="text-uppercase">blog</b-nav-item> -->
-         <b-nav-item href="/search/" class="text-uppercase">ricerca</b-nav-item>
+        <b-nav-item href="/product-list/" class="text-uppercase">product list</b-nav-item>
+   
+         <b-nav-item href="/search/" class="text-uppercase">search</b-nav-item>
       </b-navbar-nav>
 
      

@@ -4,7 +4,7 @@
    <!-- FOOTER -->
   
     
-<footer class="bg-dark"><div class="container p-4 text-white"><p class="small my-0">Tutti i diritti riservati - Questo sito partecipa al Programma Affiliazione Amazon Europe S.r.l., un programma di affiliazione che consente ai siti di percepire una commissione pubblicitaria pubblicizzando e fornendo link al sito Amazon.it.</p></div></footer>
+<footer class="bg-dark"><div class="container p-4 text-white"><p class="small my-0">All rights reserved - This site participates in the Amazon Europe Affiliate Program, an affiliate program that allows sites to earn an advertising commission by advertising and providing links to the Amazon.co.uk site.</p></div></footer>
    
 
 

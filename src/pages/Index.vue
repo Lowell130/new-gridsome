@@ -2,23 +2,24 @@
   <Layout>
     
     
-    <!-- INIZIO SEZIONE HERO -->
+    
   <div class="hero">
         <div class="hero__content">
-            <p class="intro-text py-0 px-0 mx-0 my-0">Top Gamer Hardware</p>
-            <h1 class="big-text">Migliori prodotti per Gamers</h1>
-            <a href="/product-list" class="btn btn-primary button text-uppercase intro-text">Tutti i prodotti</a>
+            <p class="intro-text py-0 px-0 mx-0 my-0">Hot Gamer Hardware</p>
+            <h1 class="big-text">Best Products for PC Gamers</h1>
+            <a href="/product-list" class="btn btn-primary button text-uppercase intro-text">All Products</a>
         </div>
          <video autoplay muted loop id="bg-video">
             <source src="/videos/bg-video.mp4" type="video/mp4">
         </video>
     </div>
 
-    <!-- FINE SEZIONE HERO -->
+    
+
  <main class="container">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-          <h1 class="display-4">giocomputers.it</h1>
-          <p class="lead text-left">Componenti, desktop, portatili, accessori e tanto altro per i migliori gamers italiani. Acquistare prodotti hardware per il gaming in offerta ai migliori prezzi e sempre disponibili. Sfoglia il catalogo alla ricerca del componente o accessori di cui necessiti per le tue sessioni di gaming. I migliori prodotti hardware per il gaming su Amazon.it</p>
+          <h1 class="display-4">vantagecomputers.co.uk</h1>
+          <p class="lead text-left">Components, desktops, laptops, accessories and more for the best pc gamers. Buy hardware products for gaming in offer at the best prices and always available. Browse the catalog looking for the component or accessories you need for your gaming sessions. The best gaming hardware products from Amazon.co.uk</p>
         </div>
 
 
@@ -40,12 +41,12 @@
  
 
         <p class="price-text text-center mb-1" v-if="pro.node.price !=='0,0'">{{ pro.node.price }} €</p>
-        <p class="price-text text-center mb-1" v-else>Offerta</p>
-        <!-- <button type="button" class="btn btn-danger btn-block">Acquista ora</button> -->
+        <p class="price-text text-center mb-1" v-else>Offer</p>
+      
   <a 
                        :href="pro.node.uRL+affiliate"
                         class="btn btn-danger btn-block"
-                      >Acquista</a>
+                      >Buy Now</a>
 
       </div>
 
@@ -55,15 +56,15 @@
 
 
 
- <h3 class="big-text my-4 py-4">Potrebbero interessarti</h3>
-<!-- INIZIO NUOVA SEZIONE POTREBBE INTERESSARTI -->
+ <h3 class="big-text my-4 py-4">You might be interested in</h3>
+
 
   <!-- <div class="row row-cols-1 row-cols-md-3 mb-3 text-center"> -->
   <QFeaturedPosts v-slot="{ posts: featured_posts }">
           <div class="col" v-for="fpost in featured_posts" :key="fpost.id">
             <div class="card mb-4 shadow-sm">
                 
-                <!-- <g-image src="~/assets/images/1.jpg" class="card-img-top" /> -->
+              
 
 
   <g-link :to="fpost.path">
@@ -73,22 +74,23 @@
             <div class="card-body">
              
              <p class="price-text text-center mb-1" v-if="fpost.price !=='0,0'">{{ fpost.price }} €</p>
-             <p class="price-text text-center mb-1" v-else>Offerta</p>
-              <!-- <button type="button" class="btn btn-danger btn-block">Acquista ora</button> -->
+             <p class="price-text text-center mb-1" v-else>Offer</p>
+            
               <a
                         :href="fpost.uRL+affiliate"
-                        class="btn btn-danger btn-block" v-if="fpost.price !=='0,0'">Acquista</a>
+                        class="btn btn-danger btn-block" v-if="fpost.price !=='0,0'">Buy Now</a>
                          <a
                         :href="fpost.uRL+affiliate"
-                        class="btn btn-danger btn-block" v-else>Check disponibilità</a>
+                        class="btn btn-danger btn-block" v-else>Check availability</a>
             </div>
           </div>
           </div>
            </QFeaturedPosts>
         <!-- </div> -->
-<!-- FINE NUOVA IMPAGINAZIONE HP -->
+
+
  
-<!-- FINE NUOVA SEZIONE POTREBBE INTERESSARTI -->
+
 
  </main>
   
@@ -133,7 +135,7 @@ query {
 <script>
 export default {
   metaInfo: {
-    title: "Prodotti per il gaming sempre disponibile ai migliori prezzi su Amazon.it"
+    title: "Gaming PC products always available at the best prices on Amazon.co.uk"
   },
 
   methods: {

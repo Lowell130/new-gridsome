@@ -2,7 +2,6 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue'
-import BlogLayout from '~/layouts/Blog.vue'
 import BootstrapVue from 'bootstrap-vue'
 
 
@@ -12,7 +11,7 @@ import BootstrapVue from 'bootstrap-vue'
 
 //custom bt style
 
-import '~/assets/fonts/fontawesome/css/all.css';
+// import '~/assets/fonts/fontawesome/css/all.css';
 // import '~/assets/scss/ui.scss';
 // import '~/assets/scss/responsive.scss';
 // import '~/assets/scss/bootstrap.scss';
@@ -36,7 +35,6 @@ export default function (Vue, { router, head, isClient }) {
 
 
   Vue.component('Layout', DefaultLayout)
-  Vue.component('Blog', BlogLayout)
   Vue.use(BootstrapVue)
  
 

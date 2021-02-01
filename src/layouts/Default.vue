@@ -2,7 +2,7 @@
 <template>
   <div>
     <Rheader />
-    <slot /> <!-- Page content will be inserted here  -->
+    <slot />
     <Rfooter />
   </div>
 </template>
