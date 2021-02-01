@@ -40,7 +40,7 @@
 
  
 
-        <p class="price-text text-center mb-1" v-if="pro.node.price !=='0,0'">{{ pro.node.price }} €</p>
+        <p class="price-text text-center mb-1" v-if="pro.node.price !=='0,0'">{{ pro.node.price }} £</p>
         <p class="price-text text-center mb-1" v-else>Offer</p>
       
   <a 
@@ -73,7 +73,7 @@
 
             <div class="card-body">
              
-             <p class="price-text text-center mb-1" v-if="fpost.price !=='0,0'">{{ fpost.price }} €</p>
+             <p class="price-text text-center mb-1" v-if="fpost.price !=='0,0'">{{ fpost.price }} £</p>
              <p class="price-text text-center mb-1" v-else>Offer</p>
             
               <a

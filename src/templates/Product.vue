@@ -56,12 +56,12 @@
                   class="card-title price-text"
                   v-if="$page.product.price !== '0,0'"
                 >
-                  {{ $page.product.price }} €
+                  {{ $page.product.price }} £
                 </h5>
                 <h5 class="card-title price-text" v-else>Offer</h5>
 
                 <!-- <span class="small" v-if="$page.product.discount !== '0%'"
-                  >Prezzo: <del>{{ $page.product.listPrice }} €</del></span
+                  >Prezzo: <del>{{ $page.product.listPrice }} £</del></span
                 > -->
 
                 <!-- <small class="label-rating text-danger" v-if="$page.product.discount !== '0%'">
@@ -161,14 +161,14 @@
                   <tr>
                     <td>Price</td>
                     <td v-if="$page.product.price !== '0,0'">
-                      {{ $page.product.price }}€
+                      {{ $page.product.price }}£
                     </td>
                     <td v-else>--</td>
                   </tr>
                   <!-- <tr>
                     <td>Price</td>
                     <td v-if="$page.product.listPrice !== '0,0'">
-                      {{ $page.product.listPrice }}€
+                      {{ $page.product.listPrice }}£
                     </td>
                     <td v-else>--</td>
                   </tr> -->

@@ -36,7 +36,7 @@
         
       </div>
       <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
-        <p class="price-text text-center mb-1" v-if="product.price != '0,0'">{{ product.price }}€</p>
+        <p class="price-text text-center mb-1" v-if="product.price != '0,0'">{{ product.price }}£</p>
         <p class="price-text text-center mb-1" v-else>Offer</p>
         <button type="button" class="btn btn-danger btn-block" v-if="product.price != '0,0'">Buy Now</button>
          <button type="button" class="btn btn-danger btn-block" v-else>Check availability</button>
