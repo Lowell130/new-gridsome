@@ -12,7 +12,7 @@
       <b-navbar-nav>
        
          <b-nav-item href="/" class="text-uppercase">Home</b-nav-item>
-        <b-nav-item href="/product-list/" class="text-uppercase">product list</b-nav-item>
+        <b-nav-item href="/product-list/" class="text-uppercase">all product</b-nav-item>
    
          <b-nav-item href="/search/" class="text-uppercase">search</b-nav-item>
       </b-navbar-nav>

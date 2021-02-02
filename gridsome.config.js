@@ -5,10 +5,10 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'giocomputers.it',
-  siteDescription: 'Prodotti per il gaming sempre disponibile ai migliori prezzi su Amazon.it',
-  titleTemplate: '%s - giocomputers.it',
-  siteUrl: 'http://giocomputers.it/',
+  siteName: 'vantagecomputers.co.uk',
+  siteDescription: 'Gaming products always available at the best prices on Amazon.co.uk',
+  titleTemplate: '%s - vantagecomputers.co.uk',
+  siteUrl: 'http://vantagecomputers.co.uk/',
 
 
 

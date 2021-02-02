@@ -86,8 +86,8 @@
   }
 
   .active {
-    background-color: var(--bg-content-color);
-    border-radius: 5px;
+    background-color: var(--bg-content-color);    
+    border: 1px solid red;
   }
 
 </style>
@@ -98,7 +98,7 @@
 import { Pager } from "gridsome";
 export default {
   metaInfo: {
-    title: "List of all gaming products"
+    title: "List of all pc gaming products"
   },
   components: {
     Pager

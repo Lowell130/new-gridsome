@@ -6,7 +6,7 @@
 </div>
 <main>
    <div class="container my-4 py-4">
-        <h1>Ricerca</h1>
+        <h1>Search</h1>
       <p>In this page you will be able to search in the whole catalog</p>
            <div class="input-group mt-4 pt-4">
             <input id="search" v-model="searchTerm" name="searchtext" value="" class="form-control" type="text">
