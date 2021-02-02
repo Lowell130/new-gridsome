@@ -87,7 +87,7 @@
 
   .active {
     background-color: var(--bg-content-color);    
-    border: 1px solid red;
+    border: 2px solid #c82333;
   }
 
 </style>
