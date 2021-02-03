@@ -65,7 +65,7 @@
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
   .pager {
     display: inline-block;
     width: 100%;
