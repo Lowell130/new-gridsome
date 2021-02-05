@@ -12,7 +12,7 @@ const { camelizeKeys } = require('humps')
   // const products = require('./src/data/new-book.json')
  //  const products = require('./src/data/lingerie.json')
   // const products = require('./src/data/macchine-caffe.json')
-  const products = require('./src/data/data2.json')
+  const products = require('./src/data/data-new.json')
   // const products = require('./src/data/laptop-best.json')
 
 module.exports = function (api) {
