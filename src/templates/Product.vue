@@ -223,8 +223,8 @@
       <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
         <p class="price-text text-center mb-1" v-if="sidebar.price != '0,0'">{{ sidebar.price }}£</p>
         <p class="price-text text-center mb-1" v-else>Offer</p>
-        <button type="button" class="btn btn-danger btn-block" v-if="sidebar.price != '0,0'">Buy Now</button>
-         <button type="button" class="btn btn-danger btn-block" v-else>Check availability</button>
+        <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-danger btn-block" v-if="sidebar.price != '0,0'">Buy Now</a>
+       <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-danger btn-block" v-else>Check availability</a>
       </div>
     </div>
   </div>
