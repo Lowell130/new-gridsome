@@ -22,7 +22,7 @@
 
 
 <!-- START NEW SEARCH -->
- <div class="container bg-light mt-3 border rounded" v-for="result in searchResults"
+ <div class="container bg-light my-4 border rounded" v-for="result in searchResults"
         :key="result.id"
         :to="result.path"
       >
@@ -32,7 +32,7 @@
           <h2 class="title-text title-text__inner text-break"><g-link :to="result.path">{{result.title}}</g-link></h2>
          
           <!-- <span class="font-italic">{{result.brand}}</span> -->
-          <span class="font-italic" v-if="result.brand != ''"><a :href="result.uRL + affiliate">{{ result.brand }}</a></span>
+          <span v-if="result.brand != ''"><a class="badge rounded-pill bg-danger text-uppercase" :href="result.uRL + affiliate">{{ result.brand }}</a></span>
           <!-- <p class="mt-2">{{result.description}}</p> -->
         </div>
         <div class="col-lg-3 col-md-12 mt-3 rounded">
@@ -40,18 +40,19 @@
           <div class="card shadow-sm">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
-            <h5 class="card-title price-text" v-if="result.price !== '0,0'">{{ result.price }} £</h5>
+            <h5 class="card-title price-text" v-if="result.price !== '0,0'">{{ result.listPrice }} £</h5>
             <h5 class="card-title price-text" v-else>Offer</h5>
-            <span class="small" v-if="result.discount !== '0%'">Price: <del>{{ result.listPrice }} £</del></span>
-            <span class="small v-else"> -- </span>
+            
+            <!-- <span class="small" v-if="result.discount !== '0%'">Price: <del>{{ result.listPrice }} £</del></span> -->
+           
             
              <!-- <small class="label-rating text-danger" v-if="result.discount !== '0%'">
                   <i class="fa fa-clipboard-check"></i>&nbsp;
                   <span>RISPARMI {{result.discount}}</span> -->
             
             
-            <span class="d-block small" v-if="result.discount !== '0%'">Save: {{result.discount}}</span>
-            <span class="d-block small" v-else> -- </span>
+            <!-- <span class="d-block small" v-if="result.discount !== '0%'">Save: {{result.discount}}</span> -->
+           
             
             
             <span class="card-text small" v-if="result.price !== '0,0'">Price VAT included</span>

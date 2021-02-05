@@ -18,7 +18,7 @@
   
    <main class="container">
 		  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-			<h1 class="spot">vantagecomputers.co.uk</h1>
+			<h1 class="spot">ggcomputers.co.uk</h1>
 			<p class="lead text-left">Components, desktops, laptops, accessories and more for the best pc gamers. Buy hardware products for gaming in offer at the best prices and always available. Browse the catalog looking for the component or accessories you need for your gaming sessions. The best gaming hardware products from Amazon.co.uk</p>
 		  </div>
   
@@ -119,7 +119,7 @@
   
   <page-query>
   query {
-	allProduct (limit: 20, sortBy: "salesRank", order: ASC, skip: 110) {
+	allProduct (limit: 20, sortBy: "salesRank", order: ASC, skip: 220) {
 	  edges {
 		node {
 		  id

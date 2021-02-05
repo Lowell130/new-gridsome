@@ -142,7 +142,7 @@
                   <td>{{$page.product.aSIN}}</td>
                 </tr> -->
                   <tr>
-                    <td>Reviews</td>
+                    <td><span class="badge rounded-pill bg-primary text-uppercase">Reviews</span></td>
                     <td>
                       <a :href="$page.product.uRL + affiliate"
                         >Read reviews</a
@@ -150,16 +150,16 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Brand</td>
+                    <td><span class="badge rounded-pill bg-danger text-uppercase">Brand</span></td>
                     <td><span v-if="$page.product.brand != ''"><a :href="$page.product.uRL + affiliate">{{ $page.product.brand }}</a></span></td>
                   </tr>
                   <tr>
-                    <td>Sale Rank</td>
+                    <td><span class="badge rounded-pill bg-warning text-uppercase">Sale Rank</span></td>
                     <td>{{ $page.product.salesRank }}</td>
                   </tr>
 
                   <tr>
-                    <td>Price</td>
+                    <td><span class="badge rounded-pill bg-info text-uppercase">Price</span></td>
                     <td v-if="$page.product.price !== '0,0'">
                       {{ $page.product.price }}£
                     </td>
@@ -316,7 +316,7 @@ export default {
         { property: "og:description", content: this.ogDesc },
         {
           property: "og:url",
-          content: `http://vantagecomputers.co.uk/` + this.postUrl,
+          content: `http://ggcomputers.co.uk/` + this.postUrl,
         },
         { property: "og:image", content: this.ogImageUrl },
         // { name: "twitter:card", content: "summary_large_image" },
