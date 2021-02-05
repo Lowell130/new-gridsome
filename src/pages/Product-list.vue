@@ -127,7 +127,7 @@ export default {
 
 <page-query>
 query AllProducts ($page: Int) {
-  allProduct (sortBy: "title", order: DESC, perPage: 20, page: $page) @paginate {
+  allProduct (sortBy: "title", order: ASC, perPage: 20, page: $page) @paginate {
     pageInfo {
       totalPages
       currentPage
