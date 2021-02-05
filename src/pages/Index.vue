@@ -5,9 +5,9 @@
 	  
 	<div class="hero">
 		  <div class="hero__content">
-			  <p class="intro-text py-0 px-0 mx-0 my-0">Hot Gamer Hardware</p>
+			  <p class="intro-text py-0 px-0 mx-0 my-0">Best Hot Gamer PC Hardware</p>
 			  <h1 class="big-text">Best Products for PC Gamers</h1>
-			  <a href="/product-list" class="btn btn-primary button text-uppercase intro-text">All Products</a>
+			  <a href="/product-list" class="btn btn-danger button text-uppercase intro-text">All Product</a>
 		  </div>
 		   <video autoplay muted loop id="bg-video">
 			  <source src="/videos/bg-video.mp4" type="video/mp4">
