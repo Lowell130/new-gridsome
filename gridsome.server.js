@@ -7,13 +7,10 @@
 
 const { camelizeKeys } = require('humps')
   
-//  const products = require('./src/data/book-small-test.json')
-  // const products = require('./src/data/book.json')
-  // const products = require('./src/data/new-book.json')
- //  const products = require('./src/data/lingerie.json')
-  // const products = require('./src/data/macchine-caffe.json')
-  const products = require('./src/data/data-new.json')
-  // const products = require('./src/data/laptop-best.json')
+
+   const products = require('./src/data/data.json')
+   //const products = require('./src/data/1.json')
+ 
 
 module.exports = function (api) {
   api.loadSource(actions => {
