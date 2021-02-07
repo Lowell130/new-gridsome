@@ -63,7 +63,7 @@
 
             <!-- <div class="card-footer">
               
-              <a :href="uRL+affiliate" target="_blank" class="btn btn-danger button-move btn-block" type="button">
+              <a :href="uRL+affiliate" target="_blank" class="btn btn-warning button-move btn-block" type="button">
                  
                     Buy Now
                   </a>
@@ -72,7 +72,7 @@
 
         </div>
 
-        <!-- <button type="button" class="btn btn-danger btn-block">Buy Now</button> -->
+        <!-- <button type="button" class="btn btn-warning btn-block">Buy Now</button> -->
 
 
       </div>
@@ -96,7 +96,7 @@ import { Pager } from "gridsome";
 import Search from "gridsome-plugin-flexsearch/SearchMixin";
 export default {
     metaInfo: {
-    title: "Search all products in the gaming catalog"
+    title: "Search all products in the outdoor catalog"
   }, 
   mixins: [Search],
   components: {

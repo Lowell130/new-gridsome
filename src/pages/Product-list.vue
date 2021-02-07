@@ -18,7 +18,7 @@
   <!-- SINGLE PRODUCTS -->
   <main>
     
-  <div class="container border rounded my-3 shadow-sm" v-for="{ node: product } in $page.allProduct.edges" :key="product.id">
+  <div class="container border rounded my-3 shadow-sm bg-white" v-for="{ node: product } in $page.allProduct.edges" :key="product.id">
     <div class="row p-4">
       <div class="col-lg-1 col-md-12 text-center">
          <g-link :to="product.path">
@@ -38,8 +38,8 @@
       <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
         <p class="price-text text-center mb-1" v-if="product.price != '0,0'">{{ product.price }}£</p>
         <p class="price-text text-center mb-1" v-else>Offer</p>
-   <a :href="product.uRL + affiliate" type="button" class="btn btn-danger btn-block" v-if="product.price != '0,0'">Buy Now</a>
-         <a :href="product.uRL + affiliate" type="button" class="btn btn-danger btn-block" v-else>Check availability</a>>
+        <a :href="product.uRL + affiliate" type="button" class="btn btn-warning btn-block text-uppercase" v-if="product.price != '0,0'">Buy Now</a>
+         <a :href="product.uRL + affiliate" type="button" class="btn btn-warning btn-block text-uppercase" v-else>Check availability</a>
       </div>
     </div>
   </div>
@@ -90,18 +90,22 @@
     border: 2px solid #c82333;
   }
 
+ 
+
 </style>
 
 
 
 <script>
 import { Pager } from "gridsome";
+
 export default {
   metaInfo: {
-    title: "List of all pc gaming products"
+    title: "List of all outdoor products"
   },
   components: {
     Pager
+   
   },
   methods: {
     getSrc(images) {

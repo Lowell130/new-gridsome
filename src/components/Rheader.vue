@@ -4,7 +4,7 @@
 
         
         <b-navbar-brand href="/">
-           <img src="/img/logo.svg" alt="" width="35" height="35" class="mx-3 spot">gg.co.uk
+           <img src="/img/logo.svg" alt="" width="35" height="35" class="mx-3 spot">outdoorgear4u.uk
         </b-navbar-brand>
 
 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

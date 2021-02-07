@@ -86,11 +86,11 @@
               </div>
 
               <div class="card-footer">
-                <!-- <button type="button" class="btn btn-danger button-move btn-block">Buy Now</button> -->
+                <!-- <button type="button" class="btn btn-warning button-move btn-block">Buy Now</button> -->
 
                 <a
                   :href="$page.product.uRL + affiliate"
-                  class="btn btn-danger button-move btn-block"
+                  class="btn btn-warning button-move btn-block text-uppercase"
                   type="button"
                   v-if="$page.product.price !== '0,0'"
                 >
@@ -99,7 +99,7 @@
 
                 <a
                   :href="$page.product.uRL + affiliate"
-                  class="btn btn-danger button-move btn-block"
+                  class="btn btn-warning button-move btn-block text-uppercase"
                   type="button"
                   v-else
                 >
@@ -109,7 +109,7 @@
             </div>
           </div>
 
-          <!-- <button type="button" class="btn btn-danger btn-block">Acquista ora</button> -->
+          <!-- <button type="button" class="btn btn-warning btn-block">Acquista ora</button> -->
         </div>
       </div>
       <div class="container my-4">
@@ -128,7 +128,10 @@
 
 
       <!-- INIZIO TABELLA NEW -->
-      <div class="container my-4 p-1 p-sm-3 border rounded shadow-sm">
+      <div class="container my-4 p-1 p-sm-3 border bg-white rounded shadow-sm">
+      
+     
+      
         <div class="col-12">
           <div class="bd-example">
             <div class="table-responsive">
@@ -142,28 +145,28 @@
                   <td>{{$page.product.aSIN}}</td>
                 </tr> -->
                   <tr>
-                    <td><span class="badge rounded-pill bg-primary text-uppercase">Reviews</span></td>
+                    <td>Reviews</td>
                     <td>
-                      <a :href="$page.product.uRL + affiliate"
-                        >Read reviews</a
-                      >
+                    <span class="badge rounded-pill bg-primary text-uppercase">  <a class="text-white" :href="$page.product.uRL + affiliate"
+                        >Read reviews on Amazon.co.uk</a
+                      ></span>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="badge rounded-pill bg-danger text-uppercase">Brand</span></td>
-                    <td><span v-if="$page.product.brand != ''"><a :href="$page.product.uRL + affiliate">{{ $page.product.brand }}</a></span></td>
+                    <td>Brand</td>
+                    <td><span class="badge rounded-pill bg-danger text-uppercase"><span v-if="$page.product.brand != ''"><a class="text-white" :href="$page.product.uRL + affiliate">{{ $page.product.brand }}</a></span></span></td>
                   </tr>
                   <tr>
-                    <td><span class="badge rounded-pill bg-warning text-uppercase">Sale Rank</span></td>
-                    <td>{{ $page.product.salesRank }}</td>
+                    <td>Sale Rank</td>
+                    <td><span class="badge rounded-pill bg-warning text-uppercase">{{ $page.product.salesRank }}</span></td>
                   </tr>
 
                   <tr>
-                    <td><span class="badge rounded-pill bg-info text-uppercase">Price</span></td>
+                    <td>Price</td>
                     <td v-if="$page.product.price !== '0,0'">
-                      {{ $page.product.price }}£
+                    <span class="badge rounded-pill bg-success text-uppercase">  {{ $page.product.price }}£</span>
                     </td>
-                    <td v-else>--</td>
+                    <td v-else><span class="badge rounded-pill bg-info text-uppercase"><a class="text-white" :href="$page.product.uRL + affiliate">Check offer</a></span></td>
                   </tr>
                   <!-- <tr>
                     <td>Price</td>
@@ -181,18 +184,16 @@
                   </tr> -->
                 </tbody>
               </table>
-              <ul>
-                <li>
-                  <small
-                    >*Sale Rank - Position ranking best sellers on
-                    Amazon.co.uk</small
-                  >
-                </li>
-              </ul>
+      
+                  <small>*Sale Rank (MAY NOT BE UPDATED) - Position ranking best sellers on Amazon.co.uk</small>
+         
             </div>
           </div>
         </div>
-      </div>
+      
+</div>
+     
+
 
       <!-- FINE BOX FINE PAGINA    -->
 
@@ -202,7 +203,7 @@
 
 <div class="container pb-4 mb-4">
       <QFeaturedSidebar v-slot="{ sidebar: sidebar_prod }">
-        <div class="container border rounded my-3 shadow-sm"  v-for="sidebar in sidebar_prod"
+        <div class="container bg-white border rounded my-3 shadow-sm"  v-for="sidebar in sidebar_prod"
           :key="sidebar.id">
     <div class="row p-4">
       <div class="col-lg-1 col-md-12 text-center">
@@ -214,6 +215,7 @@
         <h2 class="mt-4 mt-sm-0 title-text text-break"><g-link :to="sidebar.path">{{ sidebar.title }}</g-link></h2>
         <!-- <span class="small">{{ sidebar.brand }}</span> -->
           <span class="small" v-if="sidebar.brand != ''"><a class="badge rounded-pill bg-danger text-white" :href="sidebar.uRL + affiliate">{{ sidebar.brand }}</a></span>
+          
           <!-- <p>
                       {{sidebar.description.substring(0,200)+"..." | strippedContent}}
                       <g-link :to="sidebar.path">+ info</g-link>
@@ -223,8 +225,8 @@
       <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
         <p class="price-text text-center mb-1" v-if="sidebar.price != '0,0'">{{ sidebar.price }}£</p>
         <p class="price-text text-center mb-1" v-else>Offer</p>
-        <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-danger btn-block" v-if="sidebar.price != '0,0'">Buy Now</a>
-       <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-danger btn-block" v-else>Check availability</a>
+        <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-warning btn-block text-uppercase" v-if="sidebar.price != '0,0'">Buy Now</a>
+       <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-warning btn-block text-uppercase" v-else>Check availability</a>
       </div>
     </div>
   </div>
@@ -256,6 +258,7 @@
 </div>
       <!-- FINE BOX FINE PAGINA    -->
     </main>
+ 
   </Layout>
 </template>
 
@@ -267,10 +270,7 @@
  
 }
 
- .img-thumbnail {
-    max-height: 300px;
-    padding:10px;
-  }
+
 </style>
 
 
@@ -300,6 +300,7 @@ query Product ($id: ID!) {
 
 
 <script>
+
 export default {
   metaInfo() {
     return {
@@ -316,7 +317,7 @@ export default {
         { property: "og:description", content: this.ogDesc },
         {
           property: "og:url",
-          content: `http://ggcomputers.co.uk/` + this.postUrl,
+          content: `http://outdoorgear4u.uk/` + this.postUrl,
         },
         { property: "og:image", content: this.ogImageUrl },
         // { name: "twitter:card", content: "summary_large_image" },
@@ -329,7 +330,8 @@ export default {
     };
   },
   components: {
-    QFeaturedSidebar: () => import("../queries/QSidebarProd.vue"),
+    QFeaturedSidebar: () => import("../queries/QSidebarProd.vue")
+   
   },
 
   methods: {
