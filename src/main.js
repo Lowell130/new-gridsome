@@ -3,6 +3,7 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 
+
 import BootstrapVue from 'bootstrap-vue'
 
 //custom bt style
@@ -22,6 +23,7 @@ export default function (Vue, { router, head, isClient }) {
 
   Vue.component('Layout', DefaultLayout)  
   Vue.use(BootstrapVue)
+
   
  
 

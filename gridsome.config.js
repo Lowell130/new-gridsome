@@ -19,7 +19,7 @@ module.exports = {
         path: 'blog/**/*.md',
         typeName: 'Post',
         remark: {
-          // remark options
+        
         }
       }
     },
