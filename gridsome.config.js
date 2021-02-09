@@ -13,16 +13,7 @@ module.exports = {
 
 
   plugins: [
-      {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'blog/**/*.md',
-        typeName: 'Post',
-        remark: {
-        
-        }
-      }
-    },
+   
     {
       use: '@gridsome/plugin-sitemap',
       options: {
@@ -60,12 +51,5 @@ module.exports = {
     
     ]
   
-  },
-   transformers: {
-    remark: {
-      externalLinksTarget: '_blank',
-      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
- 
-    }
   }
 }
