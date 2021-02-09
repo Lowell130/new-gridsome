@@ -15,12 +15,13 @@ export default {
 </script>
 <static-query>
 query FeaturedPosts {
-  posts: allProduct (limit: 12, sortBy: "salesRank", order: ASC) {
+  posts: allProduct (limit: 6, sortBy: "salesRank", order: ASC) {
    edges {
       node {
         id
         title
         price
+        brand
         description
         listPrice
         salesRank

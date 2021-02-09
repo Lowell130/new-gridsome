@@ -13,14 +13,16 @@ module.exports = {
 
 
   plugins: [
-    // {
-    //   use: 'gridsome-plugin-gtm',
-    //   options: {
-    //     id: 'GTM-M9DJ2T9',
-    //     enabled: true,
-    //     debug: true
-    //   }
-    // },
+      {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'blog/**/*.md',
+        typeName: 'Post',
+        remark: {
+          // remark options
+        }
+      }
+    },
     {
       use: '@gridsome/plugin-sitemap',
       options: {
@@ -58,5 +60,12 @@ module.exports = {
     
     ]
   
+  },
+   transformers: {
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+ 
+    }
   }
 }

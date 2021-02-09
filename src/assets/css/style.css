@@ -55,6 +55,33 @@ a {
     font-weight: 900;
 }
 
+.big-text-h3 {
+   
+    font-size: 45px;
+    font-weight: 900;
+    background: tomato;
+    padding: 15px;
+    text-align: center;
+    border-radius: 78px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .big-text-h3 {
+   
+    font-size: 15px;
+    font-weight: 900;
+    background: tomato;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+}
+}
+
+
+
 @media (max-width: 992px) {
     .big-text {
         font-size: 40px;
@@ -99,8 +126,6 @@ a {
     .intro-text {
         text-align: center;
     }
-
-
 }
 
 @media (max-width: 768px) {
@@ -243,9 +268,9 @@ a {
 }
 
 .card-img-top {
-    padding: 10px;
+    /* padding: 10px; */
     width: 100%;
-    height: 70vh;
+    height: 50vh;
     object-fit: contain;
 }
 

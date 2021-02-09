@@ -8,8 +8,8 @@
 const { camelizeKeys } = require('humps')
   
 
-   const products = require('./src/data/data.json')
-   //const products = require('./src/data/1.json')
+   //const products = require('./src/data/data.json')
+   const products = require('./src/data/1.json')
  
 
 module.exports = function (api) {

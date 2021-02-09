@@ -25,15 +25,17 @@ From the latest and greatest laptops from the likes of Apple, Dell, HP and Lenov
 		  </div>
 
 		  <QFeaturedPosts v-slot="{ posts: featured_posts }">
-			<div class="col" v-for="fpost in featured_posts" :key="fpost.id">
+			<div class="col mb-3" v-for="fpost in featured_posts" :key="fpost.id">
 			  <div class="card mb-4 shadow-sm">
 				  
 				
   
   
 	<g-link :to="fpost.path">
-						<img :src="getSrc(fpost.images)" :alt="fpost.title" class="card-img-top" />
+						<img :src="getSrc(fpost.images)" :alt="fpost.title" class="card-img-top p-3" />
 					  </g-link>
+                    
+               
   
 			  <div class="card-body">
 			   <p class="small text-truncate">{{fpost.title}}</p>
@@ -56,7 +58,7 @@ From the latest and greatest laptops from the likes of Apple, Dell, HP and Lenov
   
   
   
-   <h3 class="big-text my-4 py-4">You might be interested in</h3>
+   <h3 class="mb-5 big-text-h3">You might be interested in</h3>
   
   
 <div class="container border rounded my-3 shadow-sm" v-for="pro in $page.allProduct.edges" :key="pro.id">
@@ -143,8 +145,7 @@ From the latest and greatest laptops from the likes of Apple, Dell, HP and Lenov
   
   <style scoped>
 
-	
-  
+   
   @media (max-width: 575.98px) { 
 	   .spot {
 	  font-size: 1.2em;
