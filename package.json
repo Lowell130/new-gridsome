@@ -17,9 +17,7 @@
     "gridsome-plugin-gtm": "^0.1.1",
     "humps": "^2.0.1",
     "jquery": "^3.4.1",
-    "vue": "^2.6.11",
-    "vue-google-adsense": "^1.9.0",
-    "vue-script2": "^2.1.0"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "fibers": "^4.0.2",
