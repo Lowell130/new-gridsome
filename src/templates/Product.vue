@@ -1,263 +1,187 @@
 <template>
   <Layout>
-    <div class="container-fluid bg-light">
+    <!-- <div class="container-fluid pt-3">
       <div class="container px-0 py-3 breadcrump">
-        <a href="/">Home</a> ~ <g-link to="/product-list/">Products</g-link> ~
+        <a href="/">Home</a> ~ <g-link to="/product-list/">{{ brcProd }}</g-link> ~
         {{ $page.product.title }}
       </div>
-    </div>
+    </div> -->
 
     <main>
-      <div class="container bg-light mt-3 border rounded shadow-sm">
-        <div class="row p-4">
-          <div class="col-lg-3 col-md-12 text-center">
-            <a target="_blank" :href="$page.product.uRL + affiliate">
-              <img
-                class="img-thumbnail single-img"
-                data-fancybox="gallery"
-                :src="getSrc($page.product.images)"
-                :alt="$page.product.title"
-              />
-            </a>
-
-            <div class="d-block mt-2">
-              <a
-                target="_blank"
-                :href="$page.product.uRL + affiliate"
-                v-for="img in $page.product.images.uRL.slice(0, 3)"
-                :key="img.id"
-                class="item-thumb"
-                alt=""
-              >
-                <img class="inner-gallery" :src="img" />
-              </a>
-            </div>
-          </div>
-        
-          <div class="col-lg-6 col-md-12 cart-info">
-            <h2 class="border-bottom pb-2 title-text__inner text-break">
-              {{ $page.product.title }}
-            </h2>
-            <!-- <span class="font-italic">{{ $page.product.brand }}</span> -->
-
-
- <span class="small" v-if="$page.product.brand != ''"><a class="badge rounded-pill bg-danger text-white" :href="$page.product.uRL + affiliate">{{ $page.product.brand }}</a></span>
-
-            <p class="mt-2" v-if="$page.product.description != 0">
-              {{ $page.product.description.substring(0,500)+" ... " | strippedContent }}<a class="badge bg-secondary text-white" :href="$page.product.uRL + affiliate">Read more</a>
-                 
-            <p class="mt-2 font-italic" v-else>No description available</p>
-          </div>
-          <div class="col-lg-3 col-md-12 rounded">
-            <div class="card shadow-sm">
-              <!-- <img src="..." class="card-img-top" alt="..."> -->
-              <div class="card-body">
-                <h5
-                  class="card-title price-text"
-                  v-if="$page.product.price !== '0,0'"
-                >
-                  {{ $page.product.price }} £
-                </h5>
-                <h5 class="card-title price-text" v-else>Offer</h5>
-
-                <!-- <span class="small" v-if="$page.product.discount !== '0%'"
-                  >Prezzo: <del>{{ $page.product.listPrice }} £</del></span
-                > -->
-
-                <!-- <small class="label-rating text-danger" v-if="$page.product.discount !== '0%'">
-                  <i class="fa fa-clipboard-check"></i>&nbsp;
-                  <span>Save {{$page.product.discount}}</span> -->
-
-                <!-- <span
-                  class="d-block small"
-                  v-if="$page.product.discount !== '0%'"
-                  >Risparmi: {{ $page.product.discount }}</span
-                >
-                <span class="d-block small" v-else> -- </span> -->
-
-                <span class="card-text small" v-if="$page.product.price !== '0,0'">Price VAT included</span>
-                <hr />
-                <p class="small-text mb-0">
-                  <strong>PRODUCT PRICES MAY NOT BE UPDATED</strong> - This site participates in the Amazon Affiliate Program, an affiliate program that allows sites to earn an advertising commission by
-                  receive an advertising commission by advertising and
-                  providing links to the Amazon.co.uk website.
-                </p>
-              </div>
-
-              <div class="card-footer">
-                <!-- <button type="button" class="btn btn-warning button-move btn-block">Buy Now</button> -->
-
-                <a
-                  :href="$page.product.uRL + affiliate"
-                  class="btn btn-warning button-move btn-block text-uppercase"
-                  type="button"
-                  v-if="$page.product.price !== '0,0'"
-                >
-                  Buy Now
-                </a>
-
-                <a
-                  :href="$page.product.uRL + affiliate"
-                  class="btn btn-warning button-move btn-block text-uppercase"
-                  type="button"
-                  v-else
-                >
-                  Check availability
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- <button type="button" class="btn btn-warning btn-block">Acquista ora</button> -->
-        </div>
-      </div>
-      <div class="container my-4">
-        <h3 class="border-bottom pb-3 text-break">
-          On offer: {{ $page.product.title }}
-        </h3>
-        <div class="text-break">
-          On this page you will find reviews, opinions and detailed information about the product <strong>{{ $page.product.title }}</strong
-          >, by <strong>{{ $page.product.brand }}</strong
-          >, sold by <strong>Amazon.co.uk</strong>. Below is a table with all the detailed information on the commercial offer and for the purchase of the product <strong>{{ $page.product.title }}</strong
-          >, by <strong>{{ $page.product.brand }}</strong> and reviews from
-          customers who have already purchased it.
-        </div>
-      </div>
-
-
-
-      <!-- INIZIO TABELLA NEW -->
-      <div class="container my-4 p-1 p-sm-3 border bg-white rounded shadow-sm">
-      
-     
-      
+      <div class="container-fluid my-4 p-3">
         <div class="col-12">
-          <div class="bd-example">
-            <div class="table-responsive">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th colspan="2">Description of the offer</th>
-                  </tr>
-                  <!-- <tr>
-                  <td>COD.</td>
-                  <td>{{$page.product.aSIN}}</td>
-                </tr> -->
-                  <tr>
-                    <td>Reviews</td>
-                    <td>
-                    <span class="badge rounded-pill bg-primary text-uppercase">  <a class="text-white" :href="$page.product.uRL + affiliate"
-                        >Read reviews on Amazon.co.uk</a
-                      ></span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Brand</td>
-                    <td><span class="badge rounded-pill bg-danger text-uppercase"><span v-if="$page.product.brand != ''"><a class="text-white" :href="$page.product.uRL + affiliate">{{ $page.product.brand }}</a></span></span></td>
-                  </tr>
-                  <tr>
-                    <td>Sale Rank</td>
-                    <td><span class="badge rounded-pill bg-warning text-uppercase">{{ $page.product.salesRank }}</span></td>
-                  </tr>
+          <div
+            class="container-fluid box p-4 p-sm-5"
+            style="position: relative"
+          >
+            <div class="top-right shadow">
+              <span v-if="$page.product.price !== '0,0'">
+                {{ $page.product.price }}{{ value }}
+              </span>
+              <span class="text-uppercase" v-else><i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 d-flex justify-content-center">
+                <div>
+                  <a target="_blank" :href="$page.product.uRL + affiliate">
+                    <img
+                      class="img-fluid box-img"
+                      data-fancybox="gallery"
+                      :src="getSrc($page.product.images)"
+                      :alt="$page.product.title"
+                    />
+                  </a>
 
-                  <tr>
-                    <td>Price</td>
-                    <td v-if="$page.product.price !== '0,0'">
-                    <span class="badge rounded-pill bg-success text-uppercase">  {{ $page.product.price }}£</span>
-                    </td>
-                    <td v-else><span class="badge rounded-pill bg-info text-uppercase"><a class="text-white" :href="$page.product.uRL + affiliate">Check offer</a></span></td>
-                  </tr>
-                  <!-- <tr>
-                    <td>Price</td>
-                    <td v-if="$page.product.listPrice !== '0,0'">
-                      {{ $page.product.listPrice }}£
-                    </td>
-                    <td v-else>--</td>
-                  </tr> -->
-                  <!-- <tr>
-                    <td>% di sconto</td>
-                    <td v-if="$page.product.discount !== '0%'">
-                      {{ $page.product.discount }}
-                    </td>
-                    <td v-else>--</td>
-                  </tr> -->
-                </tbody>
-              </table>
-      
-                  <small>*Sale Rank (MAY NOT BE UPDATED) - Position ranking best sellers on Amazon.co.uk</small>
-         
+                  <div class="d-block text-center my-4 thumb-sec">
+                    <a
+                      target="_blank"
+                      :href="$page.product.uRL + affiliate"
+                      v-for="img in $page.product.images.uRL.slice(0, 4)"
+                      :key="img.id"
+                      class="item-thumb"
+                      alt=""
+                    >
+                      <img class="inner-gallery" :src="img" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <h2>
+                  {{ $page.product.title }}
+                </h2>
+
+                <div class="container-fluid px-0">
+                  <div class="d-grid gap-2 my-4">
+                    <a
+                      class="btn btn-warning"
+                      target="_blank"
+                      :href="$page.product.uRL + affiliate"
+                      >{{ buttonOffer }}</a
+                    >
+                  </div>
+
+                  <div class="disclaimer">
+                    <!-- <div class="d-grid gap-2">
+                    <a href="#" class="btn btn-warning">VEDI OFFERTA</a>
+                  </div>        -->
+                    <p class="small my-4">
+                {{ disclaimer }}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      
-</div>
-     
 
-
-      <!-- FINE BOX FINE PAGINA    -->
-
-      <div class="container">
-        <h3 class="big-text my-4 py-4">You might be interested in</h3>
+        <!-- <div class="col-5">price zone</div>
+        <div class="col-3">price zone</div> -->
       </div>
 
-<div class="container pb-4 mb-4">
-      <QFeaturedSidebar v-slot="{ sidebar: sidebar_prod }">
-        <div class="container bg-white border rounded my-3 shadow-sm"  v-for="sidebar in sidebar_prod"
-          :key="sidebar.id">
-    <div class="row p-4">
-      <div class="col-lg-1 col-md-12 text-center">
-         <g-link :to="sidebar.path">
-                      <g-image :src="getSrc(sidebar.images)" class="img-thumbnail img-thumbnail__list single-img" :alt="sidebar.title" />
-                    </g-link>
+      <div class="container-fluid">
+       
+
+        <h3 class="pb-3 text-break">{{ onSale }}: {{ $page.product.title }}</h3>
+
+        <p class="mt-2" v-if="$page.product.description != 0">
+          <strong>{{ desc}}:</strong>
+          {{
+            ($page.product.description.substring(0, 500) + " ... ")
+              | strippedContent
+          }}<a
+            class="badge bg-secondary text-white"
+            :href="$page.product.uRL + affiliate"
+            >{{ readMore }}</a
+          >
+        </p>
+
+        <p class="mt-2 font-italic" v-else>{{ noDesc }}</p>
       </div>
-      <div class="col-lg-8 col-md-12 cart-info-list">
-        <h2 class="mt-4 mt-sm-0 title-text text-break"><g-link :to="sidebar.path">{{ sidebar.title }}</g-link></h2>
-        <!-- <span class="small">{{ sidebar.brand }}</span> -->
-          <span class="small" v-if="sidebar.brand != ''"><a class="badge rounded-pill bg-danger text-white" :href="sidebar.uRL + affiliate">{{ sidebar.brand }}</a></span>
-          
-          <!-- <p>
-                      {{sidebar.description.substring(0,200)+"..." | strippedContent}}
-                      <g-link :to="sidebar.path">+ info</g-link>
-                    </p> -->
-        
-      </div>
-      <div class="col-lg-3 col-md-12 my-sm-auto mt-4">
-        <p class="price-text text-center mb-1" v-if="sidebar.price != '0,0'">{{ sidebar.price }}£</p>
-        <p class="price-text text-center mb-1" v-else>Offer</p>
-        <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-warning btn-block text-uppercase" v-if="sidebar.price != '0,0'">Buy Now</a>
-       <a :href="sidebar.uRL + affiliate" type="button" class="btn btn-warning btn-block text-uppercase" v-else>Check availability</a>
-      </div>
-    </div>
-  </div>
-        <!-- <div
-          class="container border-bottom my-2"
-          v-for="sidebar in sidebar_prod"
-          :key="sidebar.id"
-        >
-          <div class="row py-2">
-            <div class="col-lg-2 col-md-12 text-center">
-              <g-link :to="sidebar.path">
-                <img
-                  class="img-thumbnail single-img"
-                  :src="getSrc(sidebar.images)"
-                  :alt="sidebar.title"
-                />
-              </g-link>
-            </div>
-            <div class="col-lg-10 col-md-12 cart-info-list">
-              <h2 class="mt-4 mt-sm-0 title-text">
-                <g-link :to="sidebar.path">{{ sidebar.title }}</g-link>
-              </h2>
-        
-               <span class="small" v-if="sidebar.brand != ''"><a :href="sidebar.uRL + affiliate">{{ sidebar.brand }}</a></span>
+
+      <!-- <div class="container related mt-5 pb-0 mb-0">
+      <h3>Potrebbero interessarti</h3>
+    </div> -->
+
+      <!-- start card -->
+      <div
+        class="container-fluid bg-trasparent my-4 p-3"
+        style="position: relative"
+      >
+        <h3 class="my-4">{{ related }}</h3>
+        <QFeaturedSidebar v-slot="{ sidebar: sidebar_prod }">
+          <div
+            class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3"
+          >
+            <div class="col" v-for="sidebar in sidebar_prod" :key="sidebar.id">
+              <div class="card h-100 shadow-sm">
+                <g-link :to="sidebar.path">
+                  <g-image
+                    :src="getSrc(sidebar.images)"
+                    class="card-img-top"
+                    :alt="sidebar.title"
+                  />
+                </g-link>
+
+                <div class="label-top shadow-sm">
+                  <a class="text-white" :href="sidebar.uRL + affiliate">{{
+                    sidebar.brand
+                  }}</a>
+                </div>
+                <div class="card-body">
+                  <div class="clearfix mb-3">
+                    <span
+                      class="float-start badge rounded-pill bg-success"
+                      v-if="sidebar.price != '0,0'"
+                      >{{ sidebar.price }}{{ value }}</span
+                    >
+                    <span
+                      class="float-start badge rounded-pill bg-danger"
+                      v-else
+                      ><a
+                        class="text-white small text-uppercase"
+                        :href="sidebar.uRL + affiliate"
+                        >{{ moreInfo }}</a
+                      ></span
+                    >
+                    <span class="float-end"
+                      ><a
+                        :href="sidebar.uRL + affiliate"
+                        class="small text-muted text-uppercase"
+                        >{{ reviews }}</a
+                      ></span
+                    >
+                  </div>
+                  <h5 class="card-title">
+                    <g-link target="_blank" :to="sidebar.path">{{
+                      sidebar.title
+                    }}</g-link>
+                  </h5>
+
+                  <div class="d-grid gap-2 my-4">
+                    <!-- <div class="text-center "> -->
+                    <a :href="sidebar.uRL + affiliate" class="btn btn-warning"
+                      >{{ buttonOffer }}</a
+                    >
+                    <!-- </div> -->
+                  </div>
+                  <div class="clearfix mb-1">
+                    <!-- <span class="float start amz-hp">by Amazon.it</span> -->
+                   <span class="float-start"><a :href="sidebar.uRL + affiliate"><i class="fas fa-question-circle"></i></a></span>
+                 <span class="float-end"><a :href="sidebar.uRL + affiliate"><i class="fas fa-plus"></i></a></span>
+                  
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div> -->
-      </QFeaturedSidebar>
-</div>
-      <!-- FINE BOX FINE PAGINA    -->
+        
+        </QFeaturedSidebar>
+      </div>
     </main>
- 
+
+
+  
   </Layout>
 </template>
 
@@ -266,10 +190,7 @@
   .img-thumbnail {
     max-height: 400px;
   }
- 
 }
-
-
 </style>
 
 
@@ -299,12 +220,34 @@ query Product ($id: ID!) {
 
 
 <script>
-
 export default {
+
+
+
+
+  data() {
+    return {
+     
+     
+
+
+disclaimer:process.env.GRIDSOME_PRODUCT_DISCLAIMER,
+value:process.env.GRIDSOME_PRODUCT_VALUE,
+buttonOffer:process.env.GRIDSOME_PRODUCT_OFFER_BUTTON,
+moreInfo:process.env.GRIDSOME_PRODUCT_MORE_INFO,
+reviews:process.env.GRIDSOME_PRODUCT_REVIEWS,
+related:process.env.GRIDSOME_PRODUCT_RELATED,
+noDesc:process.env.GRIDSOME_PRODUCT_NODESC,
+readMore:process.env.GRIDSOME_PRODUCT_READ_MORE,
+desc:process.env.GRIDSOME_PRODUCT_DESCRIPTION,
+brcProd: process.env.GRIDSOME_BREADCRUMP_PRODUCT,
+onSale: process.env.GRIDSOME_PRODUCT_ON_SALE,      
+    };
+  },
+
   metaInfo() {
     return {
-      title:
-        "Review - " + this.$page.product.title.substring(0, 70) + "...",
+      title: process.env.GRIDSOME_SITE_PRODUCT_TEXT+ ' - ' + this.$page.product.title.substring(0, 70) + "...",
       meta: [
         {
           key: "description",
@@ -316,7 +259,7 @@ export default {
         { property: "og:description", content: this.ogDesc },
         {
           property: "og:url",
-          content: `http://notebooksales.co.uk/` + this.postUrl,
+          content: process.env.GRIDSOME_SITE_URL + this.postUrl,
         },
         { property: "og:image", content: this.ogImageUrl },
         // { name: "twitter:card", content: "summary_large_image" },
@@ -329,8 +272,7 @@ export default {
     };
   },
   components: {
-    QFeaturedSidebar: () => import("../queries/QSidebarProd.vue")
-   
+    QFeaturedSidebar: () => import("../queries/QSidebarProd.vue"),
   },
 
   methods: {
@@ -347,7 +289,7 @@ export default {
   },
   computed: {
     affiliate: function () {
-      return "&tag=devnewuk-21";
+     return "&tag=newdev-21";
     },
 
     ogImageUrl() {

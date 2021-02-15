@@ -19,7 +19,7 @@
 export default {
   data: () => ({ sidebar: [] }),
   mounted () {
-     this.sidebar = this.$static.sidebar && this.$static.sidebar.edges.map(e => e.node).sort( () => .5 - Math.random() ).slice (0,5);
+     this.sidebar = this.$static.sidebar && this.$static.sidebar.edges.map(e => e.node).sort( () => .5 - Math.random() ).slice (0,8);
   },
 };
 

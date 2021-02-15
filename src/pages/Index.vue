@@ -1,183 +1,186 @@
 <template>
-	<Layout>
-	  
-	  
-	  
-	<div class="hero">
-		  <div class="hero__content">
-			  <p class="intro-text py-0 px-0 mx-0 my-0">Over 2000 notebook available on sale</p>
-			  <h1 class="big-text">Choose the best notebook for You</h1>
-			  <a href="/product-list" class="btn-warning button text-uppercase intro-text">All Product</a>
-		  </div>
-		   <video autoplay muted loop id="bg-video">
-			  <source src="/videos/bg-video.mp4" type="video/mp4">
-		  </video>
-	  </div>
-  
-	  
-  
-   <main class="container">
-		  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-			<h1 class="spot text-uppercase">notebooksales</h1>
-			<p class="lead text-left">Picking the perfect laptop for you means considering other factors beyond the price. Power – or rather the power you need to see through your daily tasks – as well as battery life, portability, display, keyboard and trackpad, and other features matter as well.
+  <Layout>
 
-From the latest and greatest laptops from the likes of Apple, Dell, HP and Lenovo, here are our top picks. on sale on Amazon.co.uk</p>
-		  </div>
 
-		  <QFeaturedPosts v-slot="{ posts: featured_posts }">
-			<div class="col mb-3" v-for="fpost in featured_posts" :key="fpost.id">
-			  <div class="card mb-4 shadow-sm">
-				  
-				
-  
-  
-	<g-link :to="fpost.path">
-						<img :src="getSrc(fpost.images)" :alt="fpost.title" class="card-img-top p-3" />
-					  </g-link>
-                    
-               
-  
-			  <div class="card-body">
-			   <p class="small text-truncate">{{fpost.title}}</p>
-			   <p class="price-text text-center mb-1" v-if="fpost.price !=='0,0'">{{ fpost.price }} £</p>
-			   <p class="price-text text-center mb-1" v-else>Offer</p>
-			  
-				<a
-						  :href="fpost.uRL+affiliate"
-						  class="btn btn-warning btn-block text-uppercase" v-if="fpost.price !=='0,0'">Buy Now</a>
-						   <a
-						  :href="fpost.uRL+affiliate"
-						  class="btn btn-warning btn-block text-uppercase" v-else>Check availability</a>
-			  </div>
-			</div>
-			</div>
-			 </QFeaturedPosts>
-  
-  
-  
-  
-  
-  
-   <h3 class="mb-5 big-text-h3">You might be interested in</h3>
-  
-  
-<div class="container border rounded my-3 shadow-sm" v-for="pro in $page.allProduct.edges" :key="pro.id">
-	  <div class="row p-4">
-		<div class="col-lg-1 col-md-12 text-center">
-		  <!-- <img class="img-thumbnail single-img" src="2.jpg"> -->
-  <g-link :to="pro.node.path">
-				  <g-image :src="getSrc(pro.node.images)" :alt="pro.node.title" class="img-thumbnail img-thumbnail__list single-img" />
-				</g-link>
-		</div>
-		<div class="col-lg-8 col-md-12 cart-info-list">
-		  <h2 class="mt-4 mt-lg-0 title-text text-break"><g-link :to="pro.node.path">{{ pro.node.title }}</g-link></h2>
-		<!-- <span class="small">{{ pro.node.brand }}</span> -->
-			  <span class="small" v-if="pro.node.brand != ''"><a class="badge rounded-pill bg-danger text-white" :href="pro.node.uRL + affiliate">{{ pro.node.brand }}</a></span>
-			</div>
-		<div class="col-lg-3 col-md-12 my-sm-auto mt-4">
-  
-   
-  
-		  <p class="price-text text-center mb-1" v-if="pro.node.price !=='0,0'">{{ pro.node.price }} £</p>
-		  <p class="price-text text-center mb-1 text-uppercase" v-else>Offer</p>
-		
-	<a 
-						 :href="pro.node.uRL+affiliate"
-						  class="btn btn-warning btn-block text-uppercase"
-						>Buy Now</a>
-  
-		</div>
-  
-  
-	  </div>
-	</div>
-  
-   
-  
-  
-   </main>
-	
-  
 
-  
-  
-   
-  
-  
-		 
-	</Layout>
-  </template>
+<main>
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
 
-    <script>
-	  
-  export default {
-	metaInfo: {
-	  title: "Best notebook and portable pc on Amazon.co.uk"
-	},
-  
-	methods: {
-	  getSrc(images) {
-		const { uRL } = images;
-		return images.uRL[1] || images.uRL[0];
-	  }
-	},
-  
-	components: {
-	  QFeaturedPosts: () => import("../queries/QFeaturedProd.vue")
-	  
-	},
-	filters: {
-	  strippedContent: function(string) {
-		return string.replace(/<\/?[^>]+>/gi, " ");
-	  }
-	},
-	computed: {
-	  affiliate: function() {
-		return "&tag=devnewuk-21";
-	  },
-	  reviews: function() {
-		return "#customerReviews";
-	  }
-	}
-  };
-  </script>
-  
-  
-  <style scoped>
+       
 
-   
-  @media (max-width: 575.98px) { 
-	   .spot {
-	  font-size: 1.2em;
-  } 
+        <div class="col" v-for="{ node: product } in products" :key="product.id">
+          <div class="card h-100 shadow-sm">
+           
+               <g-link :to="product.path">
+                      <g-image :src="getSrc(product.images)" class="card-img-top" :alt="product.title" />
+                    </g-link>
+             <!-- <div class="label-top shadow-sm">Asus Rog</div>  -->
+              <div class="label-top shadow-sm" v-if="product.brand != ''"><a class="text-white" :href="product.uRL + affiliate">{{ product.brand }}</a></div>
+            <div class="card-body">
+              <div class="clearfix mb-3">
+                <span class="float-start badge rounded-pill bg-success" v-if="product.price != '0,0'">{{ product.price }}{{ indexValue }}</span>
+                 <span class="float-start badge rounded-pill bg-danger" v-else><a class="text-white small text-uppercase" :href="product.uRL + affiliate">{{ indexInfo }}</a></span>
+                <span class="float-end"><a :href="product.uRL + affiliate" class="small text-muted text-uppercase">{{ indexReviews }}</a></span>
+              </div>
+              <h5 class="card-title"><g-link target="_blank" :to="product.path">{{ product.title }}</g-link></h5>
+             
+
+           
+              
+<div class="d-grid gap-2 my-4">
+              <!-- <div class="text-center "> -->
+                <a :href="product.uRL + affiliate" class="btn btn-warning">{{ indexOffer }}</a>
+              <!-- </div> -->
+</div>
+              <div class="clearfix mb-1">
+                <!-- <span class="float start amz-hp">by Amazon.it</span> -->
+              <span class="float-start"><a :href="product.uRL + affiliate"><i class="fas fa-question-circle"></i></a></span>
+                    <span class="float-end"><a :href="product.uRL + affiliate"><i class="fas fa-plus"></i></a></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+       
+       
+        </div>
+      </div>
+
+
+        <ClientOnly>
+    <infinite-loading @infinite="loadingProductsHandler"></infinite-loading>
+  </ClientOnly>
+    
+  </main>
+
+
+
+
+
+
+
+
+
+  <!-- SINGLE PRODUCTS -->
+
+
+  </Layout>
+</template>
+
+
+<style scoped>
+
+
+
+ 
+
+</style>
+
+
+
+<script>
+import InfiniteLoading from 'vue-infinite-loading';
+
+export default {
+
+  metaInfo: {
+    title: process.env.GRIDSOME_SITE_INDEX_DESC,
+  },
+  components: {
+    InfiniteLoading
+  },
+  data () {
+    return {
+      products: [],
+      currentPage: 1,
+      indexValue:process.env.GRIDSOME_INDEX_VALUE,
+      indexOffer:process.env.GRIDSOME_INDEX_OFFER_BUTTON,
+      indexInfo:process.env.GRIDSOME_INDEX_MORE_INFO,
+      indexReviews:process.env.GRIDSOME_INDEX_REVIEWS
+    }
+  },
+  created () {
+    this.products.push(...this.$page.allProduct.edges)
+  },
+  methods: {
+    getSrc(images) {
+      const { uRL } = images;
+      return images.uRL[1] || images.uRL[0];
+    },
+    async loadingProductsHandler ($state) {
+      if (this.currentPage > this.$page.allProduct.pageInfo.totalPages) {
+        $state.complete()
+
+        return
+      }
+
+      const { data } = await this.$fetch(
+        `/${this.currentPage + 1}`
+      )
+
+      const { allProduct } = data
+
+      if (allProduct.edges.length) {
+        this.currentPage = allProduct.pageInfo.currentPage
+        this.products.push(...allProduct.edges)
+
+        $state.loaded()
+
+        return
+      }
+
+      $state.complete()
+    }
+  },
+  computed: {
+    affiliate: function() {
+      return "&tag=newdev-21";
+    },
+    reviewsAmz: function() {
+      return "#customerReviews";
+    }
+  },
+   filters: {
+     strippedContent: function(string) {
+       return string.replace(/<\/?[^>]+>/gi, " ");
+     }
    }
-  
-  </style>
-  
-  
-  <page-query>
-  query {
-	allProduct (limit: 20, sortBy: "salesRank", order: ASC, skip: 220) {
-	  edges {
-		node {
-		  id
-		  title
-		  price
-		  brand
-		  discount
-		  salesRank
-		  listPrice
-		  path
-		  uRL       
-		  images {
-			uRL
-		  }
-		}
-	  }
-	}
-  }
-  </page-query>
-  
+};
+</script>
 
-  
-  
+<page-query>
+query AllProducts ($page: Int) {
+  allProduct (sortBy: "price", order: DESC, perPage: 18, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges {
+      node {
+        id
+        title
+        path
+        price
+        salesRank
+        uRL
+        brand
+        listPrice
+        images {
+          uRL
+        }
+        description
+        discount
+      }
+    }
+  }
+}
+</page-query>
+
+
+
+
+
