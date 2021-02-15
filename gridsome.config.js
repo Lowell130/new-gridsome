@@ -5,12 +5,14 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'notebooksales.co.uk',
-  siteDescription: 'Notebook at best prices on Amazon.co.uk',
-  titleTemplate: '%s - notebooksales.co.uk',
-  siteUrl: 'http://notebooksales.co.uk/',
+  siteName: process.env.GRIDSOME_SITE_NAME,
+  siteDescription: process.env.GRIDSOME_SITE_DESCRIPTION,
+  titleTemplate: '%s - ' + process.env.GRIDSOME_SITE_NAME,
+  siteUrl: process.env.GRIDSOME_SITE_URL,
 
-
+ 
+ 
+ 
 
   plugins: [
    
@@ -27,20 +29,7 @@ module.exports = {
         }
       }
     },
-    {
-      use: 'gridsome-plugin-flexsearch',
-      options: {
-        collections: [
-          {
-            typeName: 'Product',
-            indexName: 'Product',
-            fields: ['title', 'discount', 'path', 'price', 'salesRank', ' uRL', 'brand', 'listPrice', 'description']
-            
-            }
-        ],
-        searchFields: ['title']
-      }
-    }
+ 
   ],
   templates: {
     Product: [

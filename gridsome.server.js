@@ -6,7 +6,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 const { camelizeKeys } = require('humps')
-const products = require('./src/data/data.json')
+const products = require('./src/data/scheda-vide-full.json')
  
 
 module.exports = function (api) {
