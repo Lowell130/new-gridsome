@@ -36,7 +36,11 @@
               <div class="clearfix mb-1">
                 <!-- <span class="float start amz-hp">by Amazon.it</span> -->
               <span class="float-start"><a :href="product.uRL + affiliate"><i class="fas fa-question-circle"></i></a></span>
-                    <span class="float-end"><a :href="product.uRL + affiliate"><i class="fas fa-plus"></i></a></span>
+                    <!-- <span class="float-end"><a :href="product.uRL + affiliate"><i class="fas fa-plus"></i></a></span> -->
+             <button @click="addToCart(product.title)" class="btn-add active">
+            Add to Cart
+          </button>
+                   
               </div>
 
             </div>
@@ -72,13 +76,7 @@
 </template>
 
 
-<style scoped>
 
-
-
- 
-
-</style>
 
 
 
@@ -95,18 +93,35 @@ export default {
   },
   data () {
     return {
-      products: [],
-      currentPage: 1,
-      indexValue:process.env.GRIDSOME_INDEX_VALUE,
-      indexOffer:process.env.GRIDSOME_INDEX_OFFER_BUTTON,
-      indexInfo:process.env.GRIDSOME_INDEX_MORE_INFO,
-      indexReviews:process.env.GRIDSOME_INDEX_REVIEWS
+    
+    bookItem: [],
+  
+   
+   
+   
+//    infinite scrolling var
+    products: [],
+    currentPage: 1,
+//    infinite scrolling var
+    indexValue:process.env.GRIDSOME_INDEX_VALUE,
+    indexOffer:process.env.GRIDSOME_INDEX_OFFER_BUTTON,
+    indexInfo:process.env.GRIDSOME_INDEX_MORE_INFO,
+    indexReviews:process.env.GRIDSOME_INDEX_REVIEWS
     }
   },
   created () {
     this.products.push(...this.$page.allProduct.edges)
   },
   methods: {
+
+     addToCart(item) {
+      //  this.cart.push(item);
+      if (this.bookItem.indexOf(item) === -1) {
+        this.bookItem.push(item);   
+        console.log(this.bookItem);  
+      }
+    },
+     
     getSrc(images) {
       const { uRL } = images;
       return images.uRL[1] || images.uRL[0];
@@ -134,15 +149,19 @@ export default {
       }
 
       $state.complete()
-    }
+    },
+
+
+  
   },
   computed: {
-    affiliate: function() {
+      affiliate: function() {
       return "&tag=newdev-21";
     },
     reviewsAmz: function() {
       return "#customerReviews";
-    }
+    },
+ 
   },
    filters: {
      strippedContent: function(string) {
@@ -178,6 +197,11 @@ query AllProducts ($page: Int) {
     }
   }
 }
+
+
+
+
+
 </page-query>
 
 
