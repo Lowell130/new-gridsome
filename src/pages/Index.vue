@@ -93,11 +93,11 @@
           <div>
 
 
-            <b-modal id="modal-1" size="lg" hide-backdrop hide-footer content-class="shadow" title="Preferiti">   
+            <b-modal id="modal-1" size="lg" hide-footer content-class="shadow" title="Preferiti">   
                 <template #modal-header="{ close }">
       <!-- Emulate built in modal header close button action -->
       <b-button size="sm" variant="outline-danger" @click="close()">
-        chiudi
+   {{ modalClose }}
       </b-button>
     
     </template>          
@@ -105,25 +105,42 @@
 
               <div class="container" v-for="(product, index) in bookItem" :key="index">     
                      
-                      <div class="row border-bottom p-md-2 mb-2">    
-                        <div class="col-md-2">
+                      <div class="row p-md-2 mb-2">    
+                        <div class="col-md-2 text-center">
                           <g-link :to="product.path" target="_blank">
                 <g-image
                   :src="getSrc(product.images)"
-                  class="img-fluid" 
+                  class="img-fluid p-1" style="width:150px;"
                   :alt="product.title"
                 />
               </g-link>
                         </div>
-              <div class="col-md-8">
+              <div class="col-md-10">
                 <ul class="list-unstyled">
-                <li> {{ product.title }}</li>
-                <li class="badge rounded-pill bg-primary"> {{ product.price }}</li>
+                <li class="modal-title"><a target="_blank"   
+                      :href="product.uRL + affiliate"
+                      >{{ product.title }}</a></li>
+                <li>
+                       <span
+                    class="modal-price"
+                    v-if="product.price != '0,0'"
+                    >{{ product.price }}{{ indexValue }}</span
+                  >
+                  <span class="modal-price" v-else
+                    ><a
+                      class="text-black small text-uppercase"
+                      :href="product.uRL + affiliate"
+                      >{{ indexInfo }}</a
+                    ></span
+                  >
+                                      <span @click="removeToCart(product)" class="float-end"><i class="far fa-trash-alt" style="cursor:pointer"></i></span>
+
+                </li>
                 </ul>
                 </div>    
-                <div class="col-md-2">
+                <!-- <div class="col-md-2">
                     <span @click="removeToCart(product)" class="float-end"><i class="far fa-trash-alt" style="cursor:pointer"></i></span>
-                  </div>      
+                  </div>       -->
 
               
               </div>
@@ -157,6 +174,13 @@
 
 <style scoped>
 
+.modal-price {
+    font-size: .9rem;
+    font-weight: 900;
+}
+.modal-title {
+    font-size:.8rem;
+}
 .bookmark {
   left:10px;
     position: fixed;
@@ -220,6 +244,7 @@ export default {
       indexOffer: process.env.GRIDSOME_INDEX_OFFER_BUTTON,
       indexInfo: process.env.GRIDSOME_INDEX_MORE_INFO,
       indexReviews: process.env.GRIDSOME_INDEX_REVIEWS,
+      modalClose: process.env.GRIDSOME_MODALE_BUTTON
     };
   },
   created() {
