@@ -11,7 +11,7 @@
 body {
     font-family: var(--font3);
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    margin-top:100px;
+ 
 
 }
 
@@ -208,10 +208,9 @@ h2 {
     color: darkgray;
 }
 
-.fa-plus:before {
-    color: darkgray;
+.fa-heart:before {
+    color:crimson;
 }
-
 
 /* SINGLE */
 

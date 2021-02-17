@@ -8,13 +8,13 @@
   </b-navbar>
   </header> -->
 
-  <header class="fixed-top">
+  <header>
       <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand">Navbar</a>
     <div class="d-flex">
     
-      <button class="bookmark"><i class="fas fa-heart"></i></button>
+      <!-- <div class="bookmark"><i class="fas fa-heart"></i></div> -->
     </div>
   </div>
 </nav>
