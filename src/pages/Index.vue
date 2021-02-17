@@ -103,7 +103,7 @@
     </template>          
 
 
-              <div class="container" v-for="(product, index) in bookItem" :key="index">     
+              <div class="container rounded border p-1 mb-1" v-for="(product, index) in bookItem" :key="index">     
                      
                       <div class="row p-md-2 mb-2">    
                         <div class="col-md-2 text-center">
