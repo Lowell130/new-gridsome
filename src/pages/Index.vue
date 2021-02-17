@@ -97,7 +97,7 @@
                 <template #modal-header="{ close }">
       <!-- Emulate built in modal header close button action -->
       <b-button size="sm" variant="outline-danger" @click="close()">
-   {{ modalClose }}
+   <i class="fas fa-times"></i>
       </b-button>
     
     </template>          
@@ -244,7 +244,7 @@ export default {
       indexOffer: process.env.GRIDSOME_INDEX_OFFER_BUTTON,
       indexInfo: process.env.GRIDSOME_INDEX_MORE_INFO,
       indexReviews: process.env.GRIDSOME_INDEX_REVIEWS,
-      modalClose: process.env.GRIDSOME_MODALE_BUTTON
+      
     };
   },
   created() {
@@ -252,10 +252,10 @@ export default {
   },
   methods: {
     addToCart(item) {
-      //  this.cart.push(item);
-      if (this.bookItem.indexOf(item) === -1) {
-        this.bookItem.push(item);
-        console.log(this.bookItem);
+        if (this.bookItem.indexOf(item) === -1) {
+        this.bookItem.push(item);        
+      } else if (this.bookItem.indexOf(item) !== -1) {
+     this.bookItem.splice(this.bookItem.indexOf(item), 1); 
       }
     },
     removeToCart(item) {
