@@ -99,18 +99,19 @@
       <b-button size="sm" variant="outline-danger" @click="close()">
    <i class="fas fa-times"></i>
       </b-button>
+        <span>{{bookItem.length}} preferiti</span>
     
     </template>          
 
 
-              <div class="container rounded border p-1 mb-1" v-for="(product, index) in bookItem" :key="index">     
+              <div class="container rounded shadow-sm p-4 mb-2" v-for="(product, index) in bookItem" :key="index">     
                      
                       <div class="row p-md-2 mb-2">    
                         <div class="col-md-2 text-center">
                           <g-link :to="product.path" target="_blank">
                 <g-image
                   :src="getSrc(product.images)"
-                  class="img-fluid p-1" style="width:150px;"
+                  class="img-fluid p-1" style="max-width:80px;max-height:80px;"
                   :alt="product.title"
                 />
               </g-link>
@@ -234,7 +235,9 @@ export default {
   },
   data() {
     return {
+       
       bookItem: [],
+      newBookItem: null,
 
       //    infinite scrolling var
       products: [],
@@ -248,18 +251,38 @@ export default {
     };
   },
   created() {
-    this.products.push(...this.$page.allProduct.edges);
+    this.products.push(...this.$page.allProduct.edges);  
   },
+
+mounted () {
+    if (localStorage.getItem('bookItem')) {
+      try {
+        this.bookItem = JSON.parse(localStorage.getItem('bookItem'));
+      } catch(e) {
+        localStorage.removeItem('bookItem');
+      }
+    }
+},
+
   methods: {
     addToCart(item) {
+    
         if (this.bookItem.indexOf(item) === -1) {
         this.bookItem.push(item);        
       } else if (this.bookItem.indexOf(item) !== -1) {
      this.bookItem.splice(this.bookItem.indexOf(item), 1); 
       }
+       this.newBookItem = '';
+      this.saveBook();
     },
+    saveBook() {
+      const parsed = JSON.stringify(this.bookItem);
+      localStorage.setItem('bookItem', parsed);
+    },
+
     removeToCart(item) {
       this.bookItem.splice(this.bookItem.indexOf(item), 1);
+      this.saveBook();
     },
 
     getSrc(images) {

@@ -115,11 +115,11 @@ h2 {
 
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .card-img-top {
         max-height: 250px;
     }
-}
+} */
 
 
 .over-bg {
